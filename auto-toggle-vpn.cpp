@@ -12,7 +12,7 @@ using namespace std::filesystem;
 using json = nlohmann::json;
 
 // Function declarations
-void generateConfigFileExample(const path& configFilePath);
+void generateExampleConfigFile(const path& configFilePath);
 void printHelp();
 void printVersion();
 void printUnknown(const string& arg);
@@ -43,7 +43,7 @@ int main(int argc, char* argv[]) {
     if (argc > 1) {
         string arg(argv[1]);
         if (arg == "-g" or arg == "--generate") {
-            generateConfigFileExample(configFilePath.string() + ".example");
+            generateExampleConfigFile(configFilePath.string() + ".example");
         } else if (arg == "-v" or arg == "--version") {
             printVersion();
         } else if (arg == "-h" or arg == "--help") {
@@ -100,7 +100,7 @@ int main(int argc, char* argv[]) {
 }
 
 // Utility functions
-void generateConfigFileExample(const path& configFilePath) {
+void generateExampleConfigFile(const path& configFilePath) {
     Config exampleConfig;
     exampleConfig.vpnname = "Enter your vpn_name, You can find it in Settings - VPN.";
     exampleConfig.ssidlist = {"SSID_1", "SSID_2"};
@@ -110,7 +110,7 @@ void generateConfigFileExample(const path& configFilePath) {
 
         ofstream configFile(configFilePath);
         if (!configFile.is_open()) {
-            cerr << "Error: Failed to create config file example." << endl;
+            cerr << "Error: Failed to create example configuration file." << endl;
             return;
         }
 
@@ -121,11 +121,11 @@ void generateConfigFileExample(const path& configFilePath) {
         configFile << configJson.dump(4) << endl;
         configFile.close();
 
-        cout << "Successfully generated an config file example.\n"
-             << "Please make changes to the file located at " << configFilePath << "\n"
-             << "and rename it to 'config.json'." << endl;
+        cout << "Successfully generated an example configuration file.\n"
+             << "Please make changes to the file located at " << configFilePath
+             << " and rename it to 'config.json'." << endl;
     } catch (const exception& e) {
-        cerr << "Error: Failed to generate config file example. " << e.what() << endl;
+        cerr << "Error: Failed to generate example configuration file. " << e.what() << endl;
     }
 }
 
