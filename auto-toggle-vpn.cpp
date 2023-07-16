@@ -30,7 +30,7 @@ bool isSSIDHit(const string& currentSSID, const vector<string>& SSIDList);
 const string ProgramName = "auto-toggle-vpn";
 const string ProgramVersion = "0.0.2";
 const string configFileName = "config.json";
-const path configFilePath = string(getenv("HOME")) + "/.config/" + ProgramName + "/" + configFileName;
+const path configFilePath = string(getenv("HOME")) + "/.local/" + ProgramName + "/" + configFileName;
 
 // Struct to hold configuration values
 struct Config {
