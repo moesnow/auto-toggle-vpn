@@ -6,9 +6,9 @@ TARGET = auto-toggle-vpn
 
 # 检查处理器架构
 ifeq ($(shell uname -p), arm)
-	CFLAGS += -I/opt/homebrew/Cellar/nlohmann-json/3.11.2/include/
+	CFLAGS += -I/opt/homebrew/include/
 else
-	CFLAGS += -I/usr/local/Cellar/nlohmann-json/3.11.2/include/
+	CFLAGS += -I/usr/local/include/
 endif
 
 .PHONY: all clean
