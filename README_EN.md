@@ -2,7 +2,7 @@
 
 [中文](./README.md) | **English**
 
-Automatically toggle VPN according to Ethernet and Wi-Fi
+Automatically toggle VPN according to Ethernet and Wi-Fi, only supported on macOS.
 
 When connected to Ethernet or specified Wi-Fi networks, the VPN will be turned off. When connected to other Wi-Fi networks, the VPN will be turned on.
 
@@ -62,6 +62,11 @@ Options:
   -v, --version    : Display program version
   -h, --help       : Display this help message
 ```
+
+## To-Do List
+
+- [ ] Allow customization of when VPN should be enabled or disabled.
+- [ ] Add graphical user interface.
 
 ## Compilation
 
